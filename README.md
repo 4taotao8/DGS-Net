@@ -17,6 +17,7 @@ Our dataset contains over 60k RGB-D images from 240 multi-object scenes, each wi
 ![Dataset Examples](images/image1.png "真实样例1")
 ![Dataset Examples](images/image2.png "真实样例2")
 ![Dataset Examples](images/image3.png "真实样例3")
+![Dataset Examples](images/image4.png "真实样例3")
 
 ## Dataset Details
 ```
