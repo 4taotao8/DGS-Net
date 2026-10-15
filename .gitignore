@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+# Downloadable URDF/mesh assets and all generated dataset files.
+/data/
+/outputs/
+/wandb/
+/Media_materials/
+*.egg-info/

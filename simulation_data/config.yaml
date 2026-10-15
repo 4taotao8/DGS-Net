@@ -1,0 +1,12 @@
+# Stage I object-level grasp synthesis.
+urdf_scale: [0.8, 0.9, 1, 1.1, 1.2]
+num_grasps_per_scale: 2000
+
+# Stage II scene-level grasp validation and rendering.
+start_scene_id: 0
+end_scene_id: 240
+num_shuffle_scene: 50
+min_grasps_per_scene: 3
+min_grasps_per_urdf: 50
+views_elevation: 8
+views_azimuth: 32

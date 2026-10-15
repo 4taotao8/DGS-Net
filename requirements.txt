@@ -1,0 +1,10 @@
+# Versions observed in the gt_grasp reference environment (Python 3.10).
+# Install CUDA PyTorch, spconv, torch-scatter and flash-attn as described in README first.
+addict==2.4.0
+timm==0.9.12
+numpy==1.26.4
+scipy==1.15.0
+PyYAML==6.0.2
+open3d==0.18.0
+opencv-python==4.10.0.84
+pybullet==3.2.7

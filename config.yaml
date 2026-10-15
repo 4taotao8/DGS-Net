@@ -1,0 +1,26 @@
+seed: 6282
+num_image_per_scenes: 256
+
+dataset:
+  num_points: 20000
+  train_range: [0, 200]
+  test_range: [200, 240]
+
+cam:  # synthetic dataset camera; real RGB-D intrinsics are CLI arguments
+  width: 640
+  height: 480
+  fx: 525
+  fy: 525
+  cx: 320
+  cy: 240
+
+train:
+  batchsize: 10
+  accumulation_steps: 1
+  learning_rate: 0.0001
+  epoches: 40
+  workers: 8
+
+hand:
+  joints_min: [0, -20, 0, 0, 0, -20, 0, 0, 0, -20, 0, 0, 0, -20, 0, 0, 0, -20, 0, 0]
+  joints_max: [90, 20, 90, 90, 90, 20, 90, 90, 90, 20, 90, 90, 90, 20, 90, 90, 90, 20, 90, 90]
