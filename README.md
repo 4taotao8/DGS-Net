@@ -4,7 +4,7 @@ Official code, pretrained weights, and training-data preparation for **DGS-Net**
 
 - **Paper:** [IEEE Xplore](https://ieeexplore.ieee.org/document/11719723) · [arXiv preprint](https://arxiv.org/abs/2603.15410)
 - **Project:** [GitHub](https://github.com/4taotao8/DGS-Net)
-- **Project page:** [GitHub Pages source](docs/index.html)
+- **Project page:** [DGS-Net website](https://4taotao8.github.io/DGS-Net/) · [source](docs/index.html)
 - **Dataset:** [Hugging Face](https://huggingface.co/datasets/4taotao8/DGS-Net/tree/main) · [Baidu Netdisk](https://pan.baidu.com/s/1SL4EADnPFlTuN-PTyRcVHg?pwd=7816) (access code **7816**)
 - **Authors:** Tao Geng, Dapeng Yang, Ziwei Liu, Le Zhang, Le Qi, WangYang Li, Yi Ren, Shan Luo, and Fenglei Ni
 
@@ -216,9 +216,9 @@ The first and second stages can also use an alternate data directory set before 
 
 ## Project website
 
-The static project page is in [`docs/`](docs/index.html), with browser-ready video clips and images in `docs/media/`. The original high-resolution files under `Media_materials/` remain excluded from Git.
+The [project page](https://4taotao8.github.io/DGS-Net/) is served from [`docs/`](docs/index.html), with browser-ready video clips and images in `docs/media/`. The original high-resolution files under `Media_materials/` remain excluded from Git.
 
-To publish it, push `docs/` to the repository's default branch. In the GitHub repository, open **Settings → Pages**, choose **Deploy from a branch**, then select the default branch and **`/docs`** folder. GitHub Pages will serve the site at `https://4taotao8.github.io/DGS-Net/` after deployment completes. The page uses relative asset paths, so it also works from a local static server pointed at `docs/`.
+GitHub Pages publishes the `main` branch's **`/docs`** folder when changes are pushed. The page uses relative asset paths, so it also works from a local static server pointed at `docs/`.
 
 ## Method notes
 
