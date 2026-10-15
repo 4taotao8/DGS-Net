@@ -1,9 +1,10 @@
-# DGS-Net: End-to-End Dexterous Grasp Learning from Single-View Point Clouds via a Multi-Object Scene Dataset
+# DGS-Net: Learning Dexterous Grasps from Single-View Point Clouds via a Multi-Object Scene Dataset
 
 Official code, pretrained weights, and training-data preparation for **DGS-Net**. The network predicts graspable regions, 6D hand rotations, offsets from observed points to the hand TCP, and 20-joint pre-grasp and final-grasp configurations from single-view point clouds of cluttered scenes. The paper also introduces a two-stage dataset pipeline: dense object-level grasps are synthesized first, then validated in multi-object scenes.
 
 - **Paper:** [IEEE Xplore](https://ieeexplore.ieee.org/document/11719723) · [arXiv preprint](https://arxiv.org/abs/2603.15410)
 - **Project:** [GitHub](https://github.com/4taotao8/DGS-Net)
+- **Project page:** [GitHub Pages source](docs/index.html)
 - **Dataset:** [Hugging Face](https://huggingface.co/datasets/4taotao8/DGS-Net/tree/main) · [Baidu Netdisk](https://pan.baidu.com/s/1SL4EADnPFlTuN-PTyRcVHg?pwd=7816) (access code **7816**)
 - **Authors:** Tao Geng, Dapeng Yang, Ziwei Liu, Le Zhang, Le Qi, WangYang Li, Yi Ren, Shan Luo, and Fenglei Ni
 
@@ -213,9 +214,15 @@ The first and second stages can also use an alternate data directory set before 
 | `checkpoints/dgs_net_best.pth` | Pretrained weights (Git LFS) |
 | `examples/` | Example RGB and depth images |
 
+## Project website
+
+The static project page is in [`docs/`](docs/index.html), with browser-ready video clips and images in `docs/media/`. The original high-resolution files under `Media_materials/` remain excluded from Git.
+
+To publish it, push `docs/` to the repository's default branch. In the GitHub repository, open **Settings → Pages**, choose **Deploy from a branch**, then select the default branch and **`/docs`** folder. GitHub Pages will serve the site at `https://4taotao8.github.io/DGS-Net/` after deployment completes. The page uses relative asset paths, so it also works from a local static server pointed at `docs/`.
+
 ## Method notes
 
-DGS-Net has two stages over serialized point-cloud features. Stage I estimates per-point graspability and a 6D rotation. Stage II predicts the point-to-TCP offset and the pre-grasp/final hand joint vectors. The supervision includes graspable neighborhoods rather than only exact grasp centers, and represents both approach and final hand configurations. The data converter included here prepares scene-level training annotations from the released stage-II scene records. It does not rebuild the paper's earlier object-level grasp synthesis or the physical simulation scenes.
+DGS-Net has two stages over serialized point-cloud features. Stage I estimates per-point graspability and a 6D rotation. Stage II predicts the point-to-TCP offset and the pre-grasp/final hand joint vectors. The supervision includes graspable neighborhoods rather than only exact grasp centers, and represents both approach and final hand configurations. The point-label converter prepares annotations from stage-II scene records; the separate `simulation_data/` scripts can generate object-level grasps and stage-II scene records from the simulation assets.
 
 The backbone adapts [Point Transformer V3 / Pointcept](https://github.com/Pointcept/Pointcept); please also acknowledge that work when building on this implementation.
 

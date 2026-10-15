@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1827">
+  <meta name="description" content="DGS-Net learns dexterous hand grasps from a single-view point cloud in cluttered multi-object scenes. Explore the paper, videos, code, and dataset.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DGS-Net | Dexterous grasping from a single view">
+  <meta property="og:description" content="A research project on dense dexterous grasp prediction and a multi-object scene dataset.">
+  <meta property="og:image" content="https://4taotao8.github.io/DGS-Net/media/scene-0.jpg">
+  <title>DGS-Net | Dexterous grasping from a single view</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="DGS-Net home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>DGS<span class="brand-hyphen">-</span>Net</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#method">Method</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#results">Results</a>
+        <a href="#videos">Videos</a>
+        <a class="nav-paper" href="https://ieeexplore.ieee.org/document/11719723" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Research project · IEEE T-ASE</p>
+          <p class="hero-kicker">DGS-NET</p>
+          <h1 id="hero-title">Dexterous grasping <em>from a single view.</em></h1>
+          <p class="hero-description">Learning dense, high-DoF grasp configurations directly from a partial scene point cloud—without reconstructing each object first.</p>
+          <p class="paper-title">DGS-Net: Learning Dexterous Grasps from Single-View Point Clouds via a Multi-Object Scene Dataset</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://ieeexplore.ieee.org/document/11719723" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="https://github.com/4taotao8/DGS-Net" target="_blank" rel="noopener noreferrer">Explore code <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-authors">Tao Geng · Dapeng Yang · Ziwei Liu · Le Zhang · Le Qi · WangYang Li · Yi Ren · Shan Luo · Fenglei Ni</p>
+        </div>
+
+        <div class="hero-media">
+          <div class="video-frame hero-video-frame">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="media/scene-0.jpg" aria-label="Real-world multi-object dexterous grasping demonstration">
+              <source src="media/scene-0.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+            <div class="video-overlay" aria-hidden="true">
+              <span class="video-overlay-tag"><span class="pulse"></span> REAL-WORLD TRIAL</span>
+              <span class="video-overlay-index">01 / 03</span>
+            </div>
+          </div>
+          <div class="media-caption"><span>Single-view perception → dexterous action</span><span>00:09 · loop</span></div>
+        </div>
+      </div>
+      <div class="shell hero-bottom">
+        <span>Robotic manipulation / point-cloud learning</span>
+        <a href="#overview">Scroll to explore <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="metric-ribbon" aria-label="Dataset at a glance">
+      <div class="shell metric-grid">
+        <div><strong>307</strong><span>objects</span></div>
+        <div><strong>240</strong><span>multi-object scenes</span></div>
+        <div><strong>61,440</strong><span>scene views</span></div>
+        <div><strong>350k+</strong><span>validated grasps</span></div>
+      </div>
+    </section>
+
+    <section class="section section-intro" id="overview" aria-labelledby="overview-title">
+      <div class="shell intro-grid">
+        <div>
+          <p class="section-label"><span>01</span> / Overview</p>
+          <h2 id="overview-title">A complete grasp, <em>from incomplete geometry.</em></h2>
+        </div>
+        <div class="intro-body">
+          <p>In cluttered scenes, a single depth view leaves objects partially hidden. DGS-Net predicts where a dexterous hand can grasp, how it should be oriented, and how its joints should move from approach to contact.</p>
+          <p>Its training data connects dense single-object grasp synthesis to scene-level physical validation, giving the network reference points, graspable neighborhoods, TCP offsets, and both pre-grasp and final hand configurations.</p>
+          <a class="text-link" href="https://arxiv.org/abs/2603.15410" target="_blank" rel="noopener noreferrer">Read the open preprint <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method-section" id="method" aria-labelledby="method-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label"><span>02</span> / Method</p>
+            <h2 id="method-title">One scene point cloud.<br><em>Two coupled stages.</em></h2>
+          </div>
+          <p class="section-aside">DGS-Net maps observed geometry to a full dexterous grasp, including the approach pose.</p>
+        </div>
+        <div class="method-flow" role="list" aria-label="DGS-Net method stages">
+          <article class="method-card input-card" role="listitem">
+            <span class="card-index">INPUT / 00</span>
+            <div class="point-visual" aria-hidden="true">
+              <svg viewBox="0 0 280 140" focusable="false"><g fill="currentColor">
+                <circle cx="45" cy="91" r="2"/><circle cx="61" cy="79" r="3"/><circle cx="75" cy="97" r="2"/><circle cx="91" cy="73" r="3"/><circle cx="112" cy="83" r="2"/><circle cx="130" cy="62" r="3"/><circle cx="147" cy="80" r="2"/><circle cx="169" cy="53" r="3"/><circle cx="183" cy="77" r="2"/><circle cx="203" cy="59" r="3"/><circle cx="218" cy="88" r="2"/><circle cx="234" cy="68" r="3"/><circle cx="69" cy="112" r="2"/><circle cx="100" cy="113" r="2"/><circle cx="128" cy="103" r="3"/><circle cx="155" cy="114" r="2"/><circle cx="189" cy="101" r="2"/><circle cx="211" cy="115" r="2"/><circle cx="83" cy="45" r="2"/><circle cx="109" cy="37" r="3"/><circle cx="136" cy="30" r="2"/><circle cx="162" cy="35" r="2"/><circle cx="193" cy="30" r="2"/>
+              </g><circle class="point-highlight" cx="169" cy="53" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Observed scene</h3>
+            <p>Partial point cloud from one RGB-D view.</p>
+          </article>
+          <article class="method-card" role="listitem">
+            <span class="card-index">STAGE / 01</span>
+            <div class="stage-symbol"><span class="symbol-orbit"></span><span class="symbol-point"></span></div>
+            <h3>Grasp reference</h3>
+            <p>Point-wise graspability and 6D hand rotation.</p>
+            <div class="card-foot">Where + orientation</div>
+          </article>
+          <article class="method-card" role="listitem">
+            <span class="card-index">STAGE / 02</span>
+            <div class="stage-symbol offset-symbol"><span class="offset-line"></span><span class="offset-start"></span><span class="offset-end"></span></div>
+            <h3>Dexterous configuration</h3>
+            <p>Point-to-TCP offset and 20-joint pre-grasp / final-grasp vectors.</p>
+            <div class="card-foot">Pose + approach</div>
+          </article>
+        </div>
+        <div class="method-takeaway">
+          <span class="small-star" aria-hidden="true">✳</span>
+          <p>Explicit offsets address the gap between an observed surface point and the hand TCP. A pre-grasp configuration gives the hand a defined approach state.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dataset-section" id="dataset" aria-labelledby="dataset-title">
+      <div class="shell dataset-grid">
+        <div class="dataset-copy">
+          <p class="section-label"><span>03</span> / Dataset</p>
+          <h2 id="dataset-title">Built for <em>the cluttered scene.</em></h2>
+          <p class="lead">A two-stage pipeline turns object-level grasps into validated multi-object scene grasps with point-level supervision.</p>
+          <div class="timeline">
+            <div class="timeline-step"><span class="timeline-num">01</span><div><h3>Object-level synthesis</h3><p>Generate dense candidate hand configurations across 307 object models and five scale factors.</p></div></div>
+            <div class="timeline-step"><span class="timeline-num">02</span><div><h3>Scene-level validation</h3><p>Place objects in clutter, check grasps in simulation, and render 256 views per scene.</p></div></div>
+            <div class="timeline-step"><span class="timeline-num">03</span><div><h3>Point-level supervision</h3><p>Attach camera-frame poses and graspable neighborhoods to sampled scene point clouds.</p></div></div>
+          </div>
+          <a class="button button-dark" href="https://huggingface.co/datasets/4taotao8/DGS-Net/tree/main" target="_blank" rel="noopener noreferrer">Explore the dataset <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="image-figure sim-figure">
+          <img src="media/sim-trials.webp" alt="Rendered multi-object simulation scenes with a dexterous hand grasping among orange objects" loading="lazy" width="5222" height="2359">
+          <figcaption><span>Fig. 01 / Scene-level grasp generation</span><span>Simulation</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section results-section" id="results" aria-labelledby="results-title">
+      <div class="shell">
+        <div class="section-heading results-heading">
+          <div>
+            <p class="section-label"><span>04</span> / Results</p>
+            <h2 id="results-title">From simulation <em>to the physical hand.</em></h2>
+          </div>
+          <p class="section-aside">The project evaluates grasps in real multi-object arrangements as well as controlled perturbation tests.</p>
+        </div>
+        <div class="results-grid">
+          <figure class="image-figure real-figure">
+            <img src="media/real-trials.webp" alt="Sequence of real-world dexterous robot grasps in cluttered scenes" loading="lazy" width="4262" height="1585">
+            <figcaption><span>Fig. 02 / Physical grasp trials</span><span>Real world</span></figcaption>
+          </figure>
+          <div class="results-numbers">
+            <div class="result-number"><strong>79.39<span>%</span></strong><p>Grasp success rate<br><small>Physical platform · reported in project presentation</small></p></div>
+            <div class="result-number"><strong>87.94<span>%</span></strong><p>Scene clearance rate<br><small>Physical platform · reported in project presentation</small></p></div>
+            <a class="text-link" href="DGS-Net_Presentation.pdf" target="_blank" rel="noopener noreferrer">View the presentation <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section videos-section" id="videos" aria-labelledby="videos-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label"><span>05</span> / Watch</p>
+            <h2 id="videos-title">See the method <em>in motion.</em></h2>
+          </div>
+          <p class="section-aside">A walkthrough of the method, plus selected physical trials and a perturbation comparison.</p>
+        </div>
+        <div class="featured-video">
+          <video controls playsinline preload="none" poster="media/overview.jpg" aria-label="DGS-Net method and experiment overview video">
+            <source src="media/overview.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <div class="featured-caption"><div><span>FEATURED VIDEO</span><h3>DGS-Net overview</h3></div><p>Method, dataset, and experiments · 03:31</p></div>
+        </div>
+        <div class="video-gallery">
+          <article class="video-card"><video controls playsinline preload="none" poster="media/scene-0.jpg" aria-label="Real-world grasping scene one"><source src="media/scene-0.mp4" type="video/mp4"></video><div><span>REAL-WORLD TRIAL / 01</span><h3>Multi-object scene</h3></div></article>
+          <article class="video-card"><video controls playsinline preload="none" poster="media/scene-1.jpg" aria-label="Real-world grasping scene two"><source src="media/scene-1.mp4" type="video/mp4"></video><div><span>REAL-WORLD TRIAL / 02</span><h3>Scene variation</h3></div></article>
+          <article class="video-card"><video controls playsinline preload="none" poster="media/grasp-disturbance.jpg" aria-label="Grasp perturbation comparison"><source src="media/grasp-disturbance.mp4" type="video/mp4"></video><div><span>ROBUSTNESS / 03</span><h3>Grasp perturbation</h3></div></article>
+        </div>
+        <details class="additional-video"><summary>Watch another scene variation <span aria-hidden="true">↗</span></summary><video controls playsinline preload="none" poster="media/scene-2.jpg" aria-label="Additional real-world grasping scene"><source src="media/scene-2.mp4" type="video/mp4"></video></details>
+      </div>
+    </section>
+
+    <section class="section resources-section" id="resources" aria-labelledby="resources-title">
+      <div class="shell resources-inner">
+        <div>
+          <p class="section-label"><span>06</span> / Resources</p>
+          <h2 id="resources-title">Explore the <em>research.</em></h2>
+          <p>The paper, implementation, dataset, and presentation are available below. For formal citation details, use the publisher record.</p>
+        </div>
+        <div class="resource-list">
+          <a href="https://ieeexplore.ieee.org/document/11719723" target="_blank" rel="noopener noreferrer"><span>01 / Published paper</span><strong>IEEE Xplore</strong><span aria-hidden="true">↗</span></a>
+          <a href="https://arxiv.org/abs/2603.15410" target="_blank" rel="noopener noreferrer"><span>02 / Open preprint</span><strong>arXiv</strong><span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/4taotao8/DGS-Net" target="_blank" rel="noopener noreferrer"><span>03 / Implementation</span><strong>GitHub repository</strong><span aria-hidden="true">↗</span></a>
+          <a href="https://huggingface.co/datasets/4taotao8/DGS-Net/tree/main" target="_blank" rel="noopener noreferrer"><span>04 / Dataset</span><strong>Hugging Face</strong><span aria-hidden="true">↗</span></a>
+          <a href="DGS-Net_Presentation.pdf" target="_blank" rel="noopener noreferrer"><span>05 / Slides</span><strong>Project presentation</strong><span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div><span class="footer-brand">DGS-Net</span><p>Dexterous grasp learning from single-view point clouds.</p></div>
+      <div class="footer-links"><a href="https://github.com/4taotao8/DGS-Net">Code</a><a href="https://ieeexplore.ieee.org/document/11719723">Paper</a><a href="#top">Back to top ↑</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© 2026 DGS-Net authors</span><span>Code: MIT · Dataset and third-party assets: separate terms</span></div>
+  </footer>
+</body>
+</html>
