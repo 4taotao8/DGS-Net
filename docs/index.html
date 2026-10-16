@@ -32,6 +32,7 @@
         <a href="#dataset">Dataset</a>
         <a href="#results">Results</a>
         <a href="#videos">Videos</a>
+        <a href="https://github.com/4taotao8/DGS-Net" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         <a class="nav-paper" href="https://ieeexplore.ieee.org/document/11719723" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
@@ -43,13 +44,13 @@
       <div class="shell hero-inner">
         <div class="hero-copy">
           <p class="eyebrow"><span class="status-dot"></span> Research project · IEEE T-ASE</p>
-          <p class="hero-kicker">DGS-NET</p>
+          <p class="hero-kicker">DGS<span>-NET</span></p>
           <h1 id="hero-title">Dexterous grasping <em>from a single view.</em></h1>
           <p class="hero-description">Learning dense, high-DoF grasp configurations directly from a partial scene point cloud—without reconstructing each object first.</p>
           <p class="paper-title">DGS-Net: Learning Dexterous Grasps from Single-View Point Clouds via a Multi-Object Scene Dataset</p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://ieeexplore.ieee.org/document/11719723" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
-            <a class="button button-outline" href="https://github.com/4taotao8/DGS-Net" target="_blank" rel="noopener noreferrer">Explore code <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="https://github.com/4taotao8/DGS-Net" target="_blank" rel="noopener noreferrer">GitHub repository <span aria-hidden="true">↗</span></a>
           </div>
           <p class="hero-authors">Tao Geng · Dapeng Yang · Ziwei Liu · Le Zhang · Le Qi · WangYang Li · Yi Ren · Shan Luo · Fenglei Ni</p>
         </div>
@@ -136,6 +137,10 @@
           <span class="small-star" aria-hidden="true">✳</span>
           <p>Explicit offsets address the gap between an observed surface point and the hand TCP. A pre-grasp configuration gives the hand a defined approach state.</p>
         </div>
+        <figure class="image-figure paper-figure method-paper-figure">
+          <a href="fig/DGS-Net.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete DGS-Net method diagram"><img src="fig/DGS-Net.png" alt="DGS-Net architecture: point-cloud embedding, grasp point and rotation prediction, then TCP offset and hand joint prediction" loading="lazy" width="5539" height="1990"></a>
+          <figcaption><span>Fig. 01 / DGS-Net architecture and two-stage prediction</span><a href="fig/DGS-Net.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -152,9 +157,16 @@
           </div>
           <a class="button button-dark" href="https://huggingface.co/datasets/4taotao8/DGS-Net/tree/main" target="_blank" rel="noopener noreferrer">Explore the dataset <span aria-hidden="true">↗</span></a>
         </div>
-        <figure class="image-figure sim-figure">
-          <a href="media/sim-trials.webp" target="_blank" rel="noopener noreferrer" aria-label="Open the complete simulation figure"><img src="media/sim-trials.webp" alt="Rendered multi-object simulation scenes with a dexterous hand grasping among orange objects" loading="lazy" width="5222" height="2359"></a>
-          <figcaption><span>Fig. 01 / Scene-level grasp generation</span><a href="media/sim-trials.webp" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+        <figure class="image-figure dataset-main-figure">
+          <a href="fig/scene_level.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete scene-level data generation figure"><img src="fig/scene_level.png" alt="Scene-level dataset generation: simulated clutter, RGB-D images, single-view point clouds and dexterous grasp annotations" loading="lazy" width="1983" height="1898"></a>
+          <figcaption><span>Fig. 02 / Scene-level generation</span><a href="fig/scene_level.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+        </figure>
+      </div>
+      <div class="shell dataset-detail">
+        <div class="figure-intro"><span>STAGE I / DATA GENERATION</span><p>Object-level synthesis produces diverse hand configurations before the scene-level simulation filters and labels them.</p></div>
+        <figure class="image-figure paper-figure dataset-paper-figure">
+          <a href="fig/object_level.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete object-level grasp generation figure"><img src="fig/object_level.png" alt="Object-level grasp synthesis showing grasp approach, hand contact constraints, inverse kinematics, and pre-grasp to final-grasp configurations" loading="lazy" width="5307" height="2004"></a>
+          <figcaption><span>Fig. 03 / Object-level grasp synthesis</span><a href="fig/object_level.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
         </figure>
       </div>
     </section>
@@ -170,8 +182,8 @@
         </div>
         <div class="results-grid">
           <figure class="image-figure real-figure">
-            <a href="media/real-trials.webp" target="_blank" rel="noopener noreferrer" aria-label="Open the complete real-world results figure"><img src="media/real-trials.webp" alt="Sequence of real-world dexterous robot grasps in cluttered scenes" loading="lazy" width="4262" height="1585"></a>
-            <figcaption><span>Fig. 02 / Physical grasp trials</span><a href="media/real-trials.webp" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+            <a href="fig/real_set.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete real-world experiment setup figure"><img src="fig/real_set.png" alt="Physical dexterous grasping setup with RGB-D camera, robot arm, dexterous hand, and test objects" loading="lazy" width="2904" height="1412"></a>
+            <figcaption><span>Fig. 04 / Physical experiment setup</span><a href="fig/real_set.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
           </figure>
           <div class="results-numbers">
             <div class="result-number"><strong>79.39<span>%</span></strong><p>Grasp success rate<br><small>Physical platform · reported in project presentation</small></p></div>
@@ -179,6 +191,10 @@
             <a class="text-link" href="DGS-Net_Presentation.pdf" target="_blank" rel="noopener noreferrer">View the presentation <span aria-hidden="true">↗</span></a>
           </div>
         </div>
+        <figure class="image-figure paper-figure result-paper-figure">
+          <a href="fig/real_result.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete real-world grasp sequence figure"><img src="fig/real_result.png" alt="Predicted grasps in a cluttered point cloud and corresponding physical robot grasp sequences" loading="lazy" width="4843" height="1556"></a>
+          <figcaption><span>Fig. 05 / Predicted grasps and physical trials</span><a href="fig/real_result.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+        </figure>
       </div>
     </section>
 
