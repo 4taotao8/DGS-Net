@@ -148,13 +148,11 @@ h2 em { color: var(--teal); }
 .timeline-step p { margin: 0; color: #566c71; font-size: 13px; line-height: 1.56; }
 .image-figure { margin: 0; min-width: 0; }
 .image-figure img { display: block; width: 100%; height: auto; border-radius: 5px; box-shadow: 0 22px 45px rgba(6,29,30,.11); }
-.image-figure figcaption { display: flex; justify-content: space-between; gap: 15px; padding-top: 15px; color: #5a7476; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.image-figure figcaption a:hover { color: var(--teal); }
-.paper-figure > a { display: block; padding: clamp(10px, 1.7vw, 22px); border: 1px solid #e0e8e3; border-radius: 7px; background: #fff; box-shadow: 0 18px 48px rgba(6,29,30,.1); }
+.image-figure figcaption { padding-top: 15px; color: #5a7476; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.paper-figure > .figure-surface { padding: clamp(10px, 1.7vw, 22px); border: 1px solid #e0e8e3; border-radius: 7px; background: #fff; box-shadow: 0 18px 48px rgba(6,29,30,.1); }
 .paper-figure img { width: 100%; height: auto; object-fit: contain; border-radius: 0; box-shadow: none; }
-.method-paper-figure > a { border-color: rgba(215,238,231,.2); }
+.method-paper-figure > .figure-surface { border-color: rgba(215,238,231,.2); }
 .method-paper-figure figcaption { color: #9bb5b5; }
-.method-paper-figure figcaption a:hover { color: var(--mint); }
 .dataset-detail { margin-top: 68px; }
 .figure-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; margin-bottom: 19px; }
 .figure-intro span { flex: 0 0 auto; color: var(--teal); font-size: 11px; font-weight: 800; letter-spacing: .17em; }
@@ -171,6 +169,7 @@ h2 em { color: var(--teal); }
 .result-number small { color: #6c7e82; font-size: 11px; font-weight: 400; }
 .results-numbers .text-link { margin-top: 25px; }
 .result-paper-figure { margin-top: 65px; }
+.result-paper-figure > .figure-surface + .figure-surface { margin-top: 18px; }
 
 .videos-section { background: #0c2030; color: #eef8f7; }
 .videos-section .section-heading { margin-bottom: 38px; }

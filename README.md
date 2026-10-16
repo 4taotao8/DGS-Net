@@ -216,7 +216,7 @@ The first and second stages can also use an alternate data directory set before 
 
 ## Project website
 
-The [DGS-Net project website](https://4taotao8.github.io/DGS-Net/) is served from [`docs/`](docs/index.html). It presents the method, data-generation pipeline, real-world experiments, and demonstration videos. The selected paper figures are in `docs/fig/`; browser-ready videos and poster images are in `docs/media/`. Figures display at their full aspect ratio and link to their original resolution. The original high-resolution video files under `Media_materials/` remain excluded from Git.
+The [DGS-Net project website](https://4taotao8.github.io/DGS-Net/) is served from [`docs/`](docs/index.html). It presents the method, data-generation pipeline, real-world experiments, and demonstration videos. The selected figures are in `docs/fig/`; browser-ready videos and poster images are in `docs/media/`. Figures display at their full aspect ratio. The original high-resolution video files under `Media_materials/` remain excluded from Git.
 
 GitHub Pages publishes the `main` branch's **`/docs`** folder when changes are pushed. The page uses relative asset paths, so it also works from a local static server pointed at `docs/`.
 

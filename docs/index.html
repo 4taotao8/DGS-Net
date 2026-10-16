@@ -138,8 +138,8 @@
           <p>Explicit offsets address the gap between an observed surface point and the hand TCP. A pre-grasp configuration gives the hand a defined approach state.</p>
         </div>
         <figure class="image-figure paper-figure method-paper-figure">
-          <a href="fig/DGS-Net.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete DGS-Net method diagram"><img src="fig/DGS-Net.png" alt="DGS-Net architecture: point-cloud embedding, grasp point and rotation prediction, then TCP offset and hand joint prediction" loading="lazy" width="5539" height="1990"></a>
-          <figcaption><span>Fig. 01 / DGS-Net architecture and two-stage prediction</span><a href="fig/DGS-Net.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+          <div class="figure-surface"><img src="fig/DGS-Net.png" alt="DGS-Net architecture: point-cloud embedding, grasp point and rotation prediction, then TCP offset and hand joint prediction" loading="lazy" width="5539" height="1990"></div>
+          <figcaption>Fig. 01 / DGS-Net architecture and two-stage prediction</figcaption>
         </figure>
       </div>
     </section>
@@ -158,15 +158,15 @@
           <a class="button button-dark" href="https://huggingface.co/datasets/4taotao8/DGS-Net/tree/main" target="_blank" rel="noopener noreferrer">Explore the dataset <span aria-hidden="true">↗</span></a>
         </div>
         <figure class="image-figure dataset-main-figure">
-          <a href="fig/scene_level.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete scene-level data generation figure"><img src="fig/scene_level.png" alt="Scene-level dataset generation: simulated clutter, RGB-D images, single-view point clouds and dexterous grasp annotations" loading="lazy" width="1983" height="1898"></a>
-          <figcaption><span>Fig. 02 / Scene-level generation</span><a href="fig/scene_level.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+          <img src="fig/scene_level.png" alt="Scene-level dataset generation: simulated clutter, RGB-D images, single-view point clouds and dexterous grasp annotations" loading="lazy" width="1983" height="1898">
+          <figcaption>Fig. 02 / Scene-level generation</figcaption>
         </figure>
       </div>
       <div class="shell dataset-detail">
         <div class="figure-intro"><span>STAGE I / DATA GENERATION</span><p>Object-level synthesis produces diverse hand configurations before the scene-level simulation filters and labels them.</p></div>
         <figure class="image-figure paper-figure dataset-paper-figure">
-          <a href="fig/object_level.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete object-level grasp generation figure"><img src="fig/object_level.png" alt="Object-level grasp synthesis showing grasp approach, hand contact constraints, inverse kinematics, and pre-grasp to final-grasp configurations" loading="lazy" width="5307" height="2004"></a>
-          <figcaption><span>Fig. 03 / Object-level grasp synthesis</span><a href="fig/object_level.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+          <div class="figure-surface"><img src="fig/object_level.png" alt="Object-level grasp synthesis showing grasp approach, hand contact constraints, inverse kinematics, and pre-grasp to final-grasp configurations" loading="lazy" width="5307" height="2004"></div>
+          <figcaption>Fig. 03 / Object-level grasp synthesis</figcaption>
         </figure>
       </div>
     </section>
@@ -182,8 +182,8 @@
         </div>
         <div class="results-grid">
           <figure class="image-figure real-figure">
-            <a href="fig/real_set.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete real-world experiment setup figure"><img src="fig/real_set.png" alt="Physical dexterous grasping setup with RGB-D camera, robot arm, dexterous hand, and test objects" loading="lazy" width="2904" height="1412"></a>
-            <figcaption><span>Fig. 04 / Physical experiment setup</span><a href="fig/real_set.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+            <img src="fig/real_set.png" alt="Physical dexterous grasping setup with RGB-D camera, robot arm, dexterous hand, and test objects" loading="lazy" width="2904" height="1412">
+            <figcaption>Fig. 04 / Physical experiment setup</figcaption>
           </figure>
           <div class="results-numbers">
             <div class="result-number"><strong>79.39<span>%</span></strong><p>Grasp success rate<br><small>Physical platform · reported in project presentation</small></p></div>
@@ -192,8 +192,9 @@
           </div>
         </div>
         <figure class="image-figure paper-figure result-paper-figure">
-          <a href="fig/real_result.png" target="_blank" rel="noopener noreferrer" aria-label="Open the complete real-world grasp sequence figure"><img src="fig/real_result.png" alt="Predicted grasps in a cluttered point cloud and corresponding physical robot grasp sequences" loading="lazy" width="4843" height="1556"></a>
-          <figcaption><span>Fig. 05 / Predicted grasps and physical trials</span><a href="fig/real_result.png" target="_blank" rel="noopener noreferrer">View full image ↗</a></figcaption>
+          <div class="figure-surface"><img src="fig/clutter_2.png" alt="First cluttered scene: predicted grasps above and physical robot grasp sequence below" loading="lazy" width="2372" height="996"></div>
+          <div class="figure-surface"><img src="fig/clutter.png" alt="Second cluttered scene: predicted grasps above and physical robot grasp sequence below" loading="lazy" width="2371" height="1021"></div>
+          <figcaption>Fig. 05 / Cluttered-scene physical grasp trials</figcaption>
         </figure>
       </div>
     </section>
