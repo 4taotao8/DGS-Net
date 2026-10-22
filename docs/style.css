@@ -84,7 +84,7 @@ h1 em { color: var(--mint); }
 .pulse { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ffad83; box-shadow: 0 0 0 4px rgba(255,173,131,.22); }
 .video-overlay-index { color: #c0cdca; }
 .media-caption { display: flex; justify-content: space-between; gap: 20px; padding-top: 16px; color: #94abaa; font-size: 11px; letter-spacing: .06em; }
-.hero-chapters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; margin-top: 17px; }
+.hero-chapters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px; margin-top: 17px; }
 .hero-chapter { min-width: 0; padding: 0; overflow: hidden; border: 1px solid rgba(215,250,240,.2); border-radius: 5px; background: rgba(255,255,255,.045); color: #e7f3f0; text-align: left; cursor: pointer; transition: border-color .18s ease, background .18s ease; }
 .hero-chapter:hover, .hero-chapter[aria-current="true"] { border-color: var(--mint); background: rgba(114,229,202,.11); }
 .hero-chapter img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
