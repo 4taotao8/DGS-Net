@@ -57,16 +57,37 @@
 
         <div class="hero-media">
           <div class="video-frame hero-video-frame">
-            <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="media/scene-1.jpg" aria-label="Real-world multi-object dexterous grasping demonstration">
+            <video class="hero-video" controls muted loop playsinline preload="metadata" poster="media/scene-1.jpg" aria-label="Real-world multi-object dexterous grasping demonstration">
               <source src="media/scene-1.mp4" type="video/mp4">
               Your browser does not support video playback.
             </video>
+            <button class="hero-play-button" type="button" aria-label="Play demonstration video">
+              <span class="hero-play-icon" aria-hidden="true"></span>
+            </button>
             <div class="video-overlay" aria-hidden="true">
               <span class="video-overlay-tag"><span class="pulse"></span> REAL-WORLD TRIAL</span>
               <span class="video-overlay-index">01 / 03</span>
             </div>
           </div>
           <div class="media-caption"><span>Single-view perception → dexterous action</span><span>00:28 · loop</span></div>
+          <div class="hero-chapters" role="group" aria-label="Jump to a moment in the demonstration">
+            <button class="hero-chapter" type="button" data-time="0" aria-current="true">
+              <img src="media/scene-1-start.jpg" alt="" width="320" height="180">
+              <span><strong>Start</strong><small>00:00</small></span>
+            </button>
+            <button class="hero-chapter" type="button" data-time="15">
+              <img src="media/scene-1-approach.jpg" alt="" width="320" height="180">
+              <span><strong>Approach</strong><small>00:15</small></span>
+            </button>
+            <button class="hero-chapter" type="button" data-time="20">
+              <img src="media/scene-1-contact.jpg" alt="" width="320" height="180">
+              <span><strong>Contact</strong><small>00:20</small></span>
+            </button>
+            <button class="hero-chapter" type="button" data-time="22">
+              <img src="media/scene-1-lift.jpg" alt="" width="320" height="180">
+              <span><strong>Lift</strong><small>00:22</small></span>
+            </button>
+          </div>
         </div>
       </div>
       <div class="shell hero-bottom">

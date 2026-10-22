@@ -19,16 +19,68 @@ if (menuButton && menu) {
 }
 
 const heroVideo = document.querySelector('.hero-video');
-if (heroVideo) {
+const heroPlayButton = document.querySelector('.hero-play-button');
+const heroChapters = [...document.querySelectorAll('.hero-chapter')];
+if (heroVideo && heroPlayButton) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reducedMotion.matches) {
-    heroVideo.removeAttribute('autoplay');
-    heroVideo.pause();
-  } else if ('IntersectionObserver' in window) {
+  let manuallyPaused = false;
+  let visibilityPausePending = false;
+  let pendingChapterTime = null;
+
+  const updateActiveChapter = () => {
+    let activeIndex = 0;
+    heroChapters.forEach((chapter, index) => {
+      if (heroVideo.currentTime >= Number(chapter.dataset.time)) activeIndex = index;
+    });
+    heroChapters.forEach((chapter, index) => {
+      if (index === activeIndex) chapter.setAttribute('aria-current', 'true');
+      else chapter.removeAttribute('aria-current');
+    });
+  };
+
+  const playFromChapter = () => {
+    if (pendingChapterTime === null || heroVideo.readyState < 1) return;
+    heroVideo.currentTime = pendingChapterTime;
+    pendingChapterTime = null;
+    updateActiveChapter();
+    heroVideo.play().catch(() => { heroPlayButton.hidden = false; });
+  };
+
+  heroChapters.forEach((chapter) => {
+    chapter.addEventListener('click', () => {
+      pendingChapterTime = Number(chapter.dataset.time);
+      if (heroVideo.readyState < 1) heroVideo.load();
+      else playFromChapter();
+    });
+  });
+  heroVideo.addEventListener('loadedmetadata', playFromChapter);
+  heroVideo.addEventListener('timeupdate', updateActiveChapter);
+  heroVideo.addEventListener('seeking', updateActiveChapter);
+
+  heroPlayButton.addEventListener('click', () => {
+    heroVideo.play().catch(() => { heroPlayButton.hidden = false; });
+  });
+
+  heroVideo.addEventListener('play', () => {
+    manuallyPaused = false;
+    heroPlayButton.hidden = true;
+  });
+
+  heroVideo.addEventListener('pause', () => {
+    if (visibilityPausePending) {
+      visibilityPausePending = false;
+    } else {
+      manuallyPaused = true;
+    }
+    heroPlayButton.hidden = false;
+  });
+
+  if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     const videoObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !manuallyPaused) {
         heroVideo.play().catch(() => {});
-      } else {
+      } else if (!entry.isIntersecting && !heroVideo.paused) {
+        visibilityPausePending = true;
         heroVideo.pause();
       }
     }, { threshold: 0.15 });
